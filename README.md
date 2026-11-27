@@ -21,12 +21,6 @@ Standalone native Linux/Vulkan ports built for Steam Deck (OLED/LCD, Zen 2 + RDN
 * **UFC 4:** Zero-lag frame pacing (`BB_VBLANK_HZ=60`, `Immediate`), Steam Deck `evdev` `FF_RUMBLE` vibration forwarding, Russian default (`BB_LANGUAGE=8`), one-click Steam shortcut.
 * **UFC 3:** Native Linux Vulkan port (`shadPS4`-derived renderer) with Steam Deck display and controller tuning.
 
-## Screenshots (Steam Deck OLED)
-
-| BOTW — Native `1280×800` (Great Plateau) | EA SPORTS UFC 4 — Locked `60 FPS` (Octagon) |
-| :---: | :---: |
-| ![BOTW Great Plateau 80 FPS](screenshots/YOUR_BOTW_SCREENSHOT) | ![UFC 4 Octagon 60 FPS](screenshots/YOUR_UFC4_SCREENSHOT) |
-
 ## Principles
 
 * **One game, one archive.** No bloated multi-game launchers.
