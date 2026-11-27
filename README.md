@@ -2,7 +2,7 @@
 
 [English](#ports) · [Русский](#по-русски)
 
-Standalone native Linux/Vulkan ports built for Steam Deck (OLED/LCD, Zen 2 + RDNA 2, SteamOS). No mega-launchers, no emulators, no Proton or Flatpak overhead. Each game lives in its own repository with a self-contained release archive.
+Standalone native Linux/Vulkan ports built for Steam Deck (OLED/LCD, Zen 2 + RDNA 2, SteamOS). No mega-launchers, no emulators, no Proton or Flatpak overhead. Each game lives in its own repository with a standalone release archive.
 
 > [!NOTE]
 > None of these repositories contain copyrighted game assets, ROMs, dumps, console keys, or proprietary vendor DLLs. Supply your own legally dumped game files.
@@ -12,34 +12,35 @@ Standalone native Linux/Vulkan ports built for Steam Deck (OLED/LCD, Zen 2 + RDN
 | Game | Base | Performance (OLED, 15W TDP) |
 | :--- | :--- | :--- |
 | [**The Legend of Zelda: Breath of the Wild**](https://github.com/DiM3NT0R/BOTW-SavageWind-SteamDeck) *(v1.9.0 + DLC)* | Switch (`SavageWindRecomp`) | 60–90 FPS (60–83 open world at native `1280×800`, 90 in shrines/menus) |
-| [**EA SPORTS UFC 4**](https://github.com/DiM3NT0R/UFC4-Native-Plus) *(v28.00)* | PS4 (`UFC4-Native-Plus`) | Locked 60 FPS (`deck-576p`, zero stutters) |
-| [**EA SPORTS UFC 3**](https://github.com/DiM3NT0R/UFC3-Native-SteamDeck) | PS4 (`SacredFire/bbport` + Vulkan) | 60 FPS native Linux/SteamOS |
+| [**EA SPORTS UFC 4**](https://github.com/DiM3NT0R/UFC4-Native-SteamDeck) *(v28.00)* | PS4 (`UFC4-Native-Plus`) | Locked 60 FPS (`deck-576p`, zero stutters) |
+| [**EA SPORTS UFC 3**](https://github.com/DiM3NT0R/UFC3-Native-SteamDeck) *(v1.14)* | PS4 (`UFC-3-PS4-PORT-LINUX-WINDOWS`) | 60 FPS native Linux/SteamOS |
 
-## Repositories
+## Repositories (Steam Deck forks & releases)
 
 * **The Legend of Zelda: Breath of the Wild** — https://github.com/DiM3NT0R/BOTW-SavageWind-SteamDeck ([Releases](https://github.com/DiM3NT0R/BOTW-SavageWind-SteamDeck/releases))
-* **EA SPORTS UFC 4** — https://github.com/DiM3NT0R/UFC4-Native-Plus ([Releases](https://github.com/DiM3NT0R/UFC4-Native-Plus/releases))
+* **EA SPORTS UFC 4** — https://github.com/DiM3NT0R/UFC4-Native-SteamDeck ([Releases](https://github.com/DiM3NT0R/UFC4-Native-SteamDeck/releases))
 * **EA SPORTS UFC 3** — https://github.com/DiM3NT0R/UFC3-Native-SteamDeck ([Releases](https://github.com/DiM3NT0R/UFC3-Native-SteamDeck/releases))
 
 ## Build & optimization notes
 
 * **BOTW:** Compiled with `clang -O3 -march=znver2`, ThinLTO, and PGO; 2-way `gcopy` and `SETC_TAB`, in-place `cbuf k==1`, AVX2 texture hashing (`-17.7%` CPU `exec`, up to `83.5 FPS` on the Great Plateau vs `77.2` on the stock AppImage). Ships native Linux **FSR 4.1.2 Lite (`FSR4L-i8`)** + AMD CAS via `dlopen` (toggle in-game with `View + Menu`).
 * **UFC 4:** Zero-lag frame pacing (`BB_VBLANK_HZ=60`, `Immediate`), Steam Deck `evdev` `FF_RUMBLE` vibration forwarding, Russian default (`BB_LANGUAGE=8`), one-click Steam shortcut.
-* **UFC 3:** Native Linux Vulkan port (`shadPS4`-derived renderer) with Steam Deck display and controller tuning.
+* **UFC 3:** Native Linux Vulkan port (`shadPS4`-derived renderer) tuned for Steam Deck display and controller input.
 
 ## Principles
 
 * **One game, one archive.** No bloated multi-game launchers.
 * **Native SteamOS binaries.** Linked directly against SteamOS host libraries (`ldd` clean, no Flatpak or Proton overhead).
-* **Measured on hardware.** Every optimization is profiled on a Steam Deck OLED at 15W TDP and visually verified for zero artifacts.
+* **Measured on hardware.** Every optimization is profiled on a Steam Deck OLED at 15W TDP and visually checked for artifacts.
 
-## Credits
+## Upstream credits
 
-Core recompilation, upscaling bridges, and compatibility layers belong to their upstream authors:
+Core recompilation, upscaling bridges, and compatibility layers belong to their original authors:
 
 * [Revivedx/SavageWindRecomp](https://github.com/Revivedx/SavageWindRecomp) — BOTW static recompilation
 * [auz466/fsr4up-vk](https://github.com/auz466/fsr4up-vk) — native Linux Vulkan FSR 4.1.2 bridge
-* [abdullah-tech7/UFC4-Native-Plus](https://github.com/abdullah-tech7/UFC4-Native-Plus) and shadPS4 / bbport contributors
+* [abdullah-tech7/UFC4-Native-Plus](https://github.com/abdullah-tech7/UFC4-Native-Plus) — UFC 4 port base
+* [GNSB/UFC-3-PS4-PORT-LINUX-WINDOWS](https://github.com/GNSB/UFC-3-PS4-PORT-LINUX-WINDOWS), shadPS4, SacredFire & bbport contributors — UFC 3 port and PS4/Vulkan base
 
 ---
 
@@ -55,13 +56,13 @@ Core recompilation, upscaling bridges, and compatibility layers belong to their 
 | Игра | База | Производительность (OLED, 15W TDP) |
 | :--- | :--- | :--- |
 | [**The Legend of Zelda: Breath of the Wild**](https://github.com/DiM3NT0R/BOTW-SavageWind-SteamDeck) *(v1.9.0 + DLC)* | Switch (`SavageWindRecomp`) | 60–90 FPS (60–83 в открытом мире в нативе `1280×800`, 90 в храмах и меню) |
-| [**EA SPORTS UFC 4**](https://github.com/DiM3NT0R/UFC4-Native-Plus) *(v28.00)* | PS4 (`UFC4-Native-Plus`) | Лок 60 FPS (`deck-576p`, без статтеров) |
-| [**EA SPORTS UFC 3**](https://github.com/DiM3NT0R/UFC3-Native-SteamDeck) | PS4 (`SacredFire/bbport` + Vulkan) | 60 FPS нативно на Linux/SteamOS |
+| [**EA SPORTS UFC 4**](https://github.com/DiM3NT0R/UFC4-Native-SteamDeck) *(v28.00)* | PS4 (`UFC4-Native-Plus`) | Лок 60 FPS (`deck-576p`, без статтеров) |
+| [**EA SPORTS UFC 3**](https://github.com/DiM3NT0R/UFC3-Native-SteamDeck) *(v1.14)* | PS4 (`UFC-3-PS4-PORT-LINUX-WINDOWS`) | 60 FPS нативно на Linux/SteamOS |
 
-### Репозитории
+### Репозитории (форки с фиксами под Steam Deck)
 
 * **The Legend of Zelda: Breath of the Wild** — https://github.com/DiM3NT0R/BOTW-SavageWind-SteamDeck ([Релизы](https://github.com/DiM3NT0R/BOTW-SavageWind-SteamDeck/releases))
-* **EA SPORTS UFC 4** — https://github.com/DiM3NT0R/UFC4-Native-Plus ([Релизы](https://github.com/DiM3NT0R/UFC4-Native-Plus/releases))
+* **EA SPORTS UFC 4** — https://github.com/DiM3NT0R/UFC4-Native-SteamDeck ([Релизы](https://github.com/DiM3NT0R/UFC4-Native-SteamDeck/releases))
 * **EA SPORTS UFC 3** — https://github.com/DiM3NT0R/UFC3-Native-SteamDeck ([Релизы](https://github.com/DiM3NT0R/UFC3-Native-SteamDeck/releases))
 
 ### Сборка и оптимизации
@@ -82,4 +83,5 @@ Core recompilation, upscaling bridges, and compatibility layers belong to their 
 
 * [Revivedx/SavageWindRecomp](https://github.com/Revivedx/SavageWindRecomp) — статическая рекомпиляция BOTW
 * [auz466/fsr4up-vk](https://github.com/auz466/fsr4up-vk) — нативный Linux Vulkan-мост для FSR 4.1.2
-* [abdullah-tech7/UFC4-Native-Plus](https://github.com/abdullah-tech7/UFC4-Native-Plus) и контрибьюторы shadPS4 / bbport
+* [abdullah-tech7/UFC4-Native-Plus](https://github.com/abdullah-tech7/UFC4-Native-Plus) — база порта UFC 4
+* [GNSB/UFC-3-PS4-PORT-LINUX-WINDOWS](https://github.com/GNSB/UFC-3-PS4-PORT-LINUX-WINDOWS), контрибьюторы shadPS4, SacredFire и bbport — порт UFC 3 и база PS4/Vulkan
